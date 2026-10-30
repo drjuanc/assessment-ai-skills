@@ -2,14 +2,14 @@
 
 This file is the master copy of the rules shared by the skills in this collection.
 
-Skills cannot read files outside their own folder, so these rules are copied into each skill (usually into its `references/` folder, sometimes into SKILL.md). When you change a rule here, copy the change to every skill that uses it, in both the Claude and the Copilot versions.
+Skills cannot read files outside their own folder, so these rules are copied into each skill (usually into its `references/` folder, sometimes into SKILL.md). When you change a rule here, copy the change to every skill that uses it, in the Claude version, the Copilot version and the Copilot agent instructions (`copilot/agent-instructions.md`).
 
-| Rule | exam-to-moodle (claude) | exam-to-moodle (copilot) |
-|---|---|---|
-| Metadata, tags, Bloom's, essay settings mapping | `references/metadata_rules.md` | `references/metadata_rules.md` |
-| Essay settings: "Apply only settings the document states" | `SKILL.md`, "Essay settings" | `SKILL.md`, "Essay settings" |
-| MCQ fractions, question naming and category | `SKILL.md` | `SKILL.md` |
-| Feedback rules and disclaimer | `references/feedback_rules.md` (asking: `SKILL.md`) | `SKILL.md`, "Student feedback" |
+| Rule | exam-to-moodle (claude) | exam-to-moodle (copilot) | exam-to-moodle (copilot agent) |
+|---|---|---|---|
+| Metadata, tags, Bloom's, essay settings mapping | `references/metadata_rules.md` | `references/metadata_rules.md` | `agent-instructions.md`, "Metadata and tags" and "Essay settings" |
+| Essay settings: "Apply only settings the document states" | `SKILL.md`, "Essay settings" | `SKILL.md`, "Essay settings" | `agent-instructions.md`, "Essay settings" |
+| MCQ fractions, question naming and category | `SKILL.md` | `SKILL.md` | `agent-instructions.md`, "Multiple choice and multiple response" and "Names and category" |
+| Feedback rules and disclaimer | `references/feedback_rules.md` (asking: `SKILL.md`) | `SKILL.md`, "Student feedback" | `agent-instructions.md`, "Feedback" |
 
 ## Metadata
 

@@ -7,6 +7,7 @@ A collection of AI skills for health professions assessment (exam conversion, it
     skills/<skill-name>/
     ├── README.md                     human documentation for the skill
     ├── copilot/<skill-name>/         install-ready Copilot version
+    ├── copilot/agent-instructions.md condensed Copilot version for a Copilot agent (optional)
     └── claude/<skill-name>/          install-ready Claude version
 
 - The innermost folder is what users install, so its name must exactly match the `name` field in its SKILL.md.
@@ -25,8 +26,9 @@ Copilot skills have no scripts (OneDrive and Cowork skills do not reliably run t
 | Output | claude.ai output paths | Returns a file or an XML code block |
 | Feedback rules location | `references/feedback_rules.md` (asking in SKILL.md) | SKILL.md, "Student feedback" |
 | No answers found | Lists likely causes and fixes (theme or unusual red, uncoloured answers, scanned PDF) | Gives step-by-step Find and Replace instructions to add `[[CORRECT]]` markers in Word |
+| Agent version | None | `copilot/agent-instructions.md`: a condensed copy of SKILL.md (under 8,000 characters) pasted into a Copilot agent's Instructions, with the four reference files uploaded as Knowledge. When no answers are found, it asks the user to run the Word macro instead of giving Find and Replace steps. It must keep every rule that changes the XML. |
 
-Everything else must stay identical, including Moodle XML rules, metadata, tags, Bloom's normalisation, essay settings, MCQ fractions, feedback rules and question naming. Shared rules are kept in `conventions.md`. When changing one version, check whether the other needs the same change, and say so.
+Everything else must stay identical, including Moodle XML rules, metadata, tags, Bloom's normalisation, essay settings, MCQ fractions, feedback rules and question naming. Shared rules are kept in `conventions.md`. When changing one copy, check whether the other copies (Claude, Copilot and Copilot agent instructions) need the same change, and say so.
 
 ## Rules
 
