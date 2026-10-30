@@ -70,6 +70,27 @@ Example as it appears in `document.md`:
 
 The template keeps the header row and the Drug column, and leaves the other cells empty. `<graderinfo>` holds the complete table.
 
+#### Response template tables
+
+When a question has a table in `<responsetemplate>` (complete the table, label the diagram, three-stage assessment and similar), always style it so students have room to write:
+
+- Table: `style="width: 100%; border-collapse: collapse;"`
+- Column widths go on the header cells (`<th>`):
+  - Label or number columns (e.g. "Label", "1, 2, 3"): 10–12%, `text-align: center`
+  - Row-heading columns (e.g. "Stage of assessment", "Feature", "Brain structure"): 25–30%, `text-align: left`
+  - Answer columns share the rest equally (e.g. one answer column = 70–75%; two answer columns = 35–37% each)
+- Every `<th>` and `<td>`: `padding: 6px; vertical-align: top`
+- Answer cell height, set on the empty answer cells (`<td>&nbsp;</td>`):
+  - One word or short name: `height: 40px`
+  - One phrase or a single point: `height: 80px`
+  - Two or more points ("at least 2", "list", "describe"): `height: 120px`
+- Keep label and row-heading cells unstyled apart from padding and alignment.
+- Set `<responsefieldlines>` to at least 15 for any question with a template table.
+- The filled table in `<graderinfo>` also uses `width: 100%` and `padding: 6px`, with no fixed heights.
+- Only inline styles. No `<style>` blocks, classes or `<colgroup>`, because Moodle may strip them.
+
+See `Pharmacology_Q006` in `templates.md`.
+
 ### Other templates
 
 Headings or a structure the student must follow ("Structure your answer under:", "Use the headings below") also go in `<responsetemplate>`, removed from the question text.

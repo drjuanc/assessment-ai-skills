@@ -169,6 +169,9 @@ def main():
             ft = txt(q, "filetypeslist")
             if ft and not all(x.strip().startswith(".") for x in ft.split(",")):
                 errors.append(f"{where}: filetypeslist entries must start with a dot.")
+            tmpl = q.findtext("responsetemplate/text") or ""
+            if "<table" in tmpl and not re.search(r'<table[^>]*style="[^"]*width:\s*100%', tmpl):
+                warnings.append(f"{where}: response template table lacks width: 100%.")
         else:
             warnings.append(f"{where}: question type not checked by this script.")
 

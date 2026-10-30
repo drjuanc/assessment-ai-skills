@@ -1,6 +1,6 @@
 # Validation Checklist
 
-Run `scripts/validate_moodle_xml.py` first and fix every ERROR. The script checks structure: well-formed XML, the category, unique names, grades, MCQ fractions, matching counts, essay setting combinations, leftover markers and placeholders, and the feedback option: empty feedback with `--no-feedback`, or the disclaimer and general feedback length with `--ai-feedback`.
+Run `scripts/validate_moodle_xml.py` first and fix every ERROR. The script checks structure: well-formed XML, the category, unique names, grades, MCQ fractions, matching counts, essay setting combinations, leftover markers and placeholders, and the feedback option: empty feedback with `--no-feedback`, or the disclaimer and general feedback length with `--ai-feedback`. It also gives a WARNING when a response template table lacks `width: 100%`; fix these too.
 
 Then check these content points, which the script cannot judge. Fix any failure; if a question cannot be fixed, remove it and list it in the report.
 
@@ -20,6 +20,11 @@ Then check these content points, which the script cannot judge. Fix any failure;
 
 - [ ] Memo and marker-only rubrics are in `<graderinfo>`, not in `<questiontext>`.
 - [ ] A "complete the table" question has the table in `<responsetemplate>` with every marked answer removed and every unmarked cell kept, and the filled table in `<graderinfo>`.
+- [ ] Every table in `<responsetemplate>` has `style="width: 100%; border-collapse: collapse;"`, and the filled table in `<graderinfo>` has `width: 100%` and no fixed heights.
+- [ ] Template column widths are on the `<th>` cells: label or number columns 10–12%, row-heading columns 25–30%, answer columns sharing the rest equally.
+- [ ] Every empty answer cell in a template table has a height: 40px (one word or short name), 80px (one phrase or point) or 120px (two or more points).
+- [ ] A question with a template table has `<responsefieldlines>` of at least 15.
+- [ ] Template and grader tables use inline styles only: no `<style>` blocks, classes or `<colgroup>`.
 - [ ] Template headings or tables are not repeated in `<questiontext>`.
 - [ ] Word limits, uploads and file types appear only where the document states them.
 
