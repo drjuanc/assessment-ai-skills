@@ -15,9 +15,18 @@ A collection of AI skills for health professions assessment (exam conversion, it
 
 ## Platform differences
 
-- Copilot skills: no scripts (OneDrive and Cowork skills do not reliably run them). Correct answers are detected with the `[[CORRECT]]` marker added by a Word macro.
-- Claude skills: may include `scripts/` (Python) that run in Claude's code-execution environment.
-- Everything else (Moodle XML rules, metadata, feedback rules) should be identical. When changing one version, check whether the other needs the same change, and say so.
+Copilot skills have no scripts (OneDrive and Cowork skills do not reliably run them). Claude skills may include `scripts/` (Python) that run in Claude's code-execution environment. The intended differences are:
+
+| Area | Claude | Copilot |
+|---|---|---|
+| Reading documents | Reads documents with `extract_document.py` | Reads documents directly and relies on `[[CORRECT]]` markers added by a Word macro |
+| Images | Embeds images with `embed_images.py` | Uses placeholders: `<p>[Image: brief description]</p>` |
+| Validation | `validate_moodle_xml.py`, plus a content checklist for what the script cannot check | The full validation checklist only |
+| Output | claude.ai output paths | Returns a file or an XML code block |
+| Feedback rules location | `references/feedback_rules.md` (asking in SKILL.md) | SKILL.md, "Student feedback" |
+| No answers found | Lists likely causes and fixes (theme or unusual red, uncoloured answers, scanned PDF) | Gives step-by-step Find and Replace instructions to add `[[CORRECT]]` markers in Word |
+
+Everything else must stay identical, including Moodle XML rules, metadata, tags, Bloom's normalisation, essay settings, MCQ fractions, feedback rules and question naming. Shared rules are kept in `conventions.md`. When changing one version, check whether the other needs the same change, and say so.
 
 ## Rules
 
@@ -37,4 +46,4 @@ A collection of AI skills for health professions assessment (exam conversion, it
 ## Git
 
 - Commit messages: imperative, short, and naming the platforms affected, for example "Add AI feedback (copilot + claude)".
-- Ask before pushing.
+- Never commit or push. The user makes all commits.

@@ -37,8 +37,8 @@ Match labels case-insensitively and ignore punctuation and trailing colons.
 These fields apply to essay questions only and never become tags.
 
 - Words: "300" → `<maxwordlimit>300</maxwordlimit>`; "250–400" → `<minwordlimit>250</minwordlimit>` and `<maxwordlimit>400</maxwordlimit>`; "at least 200" → `<minwordlimit>200</minwordlimit>`.
-- Upload: "Yes" or "1" → `<attachments>1</attachments>`; a number → that number; "unlimited" → `-1`. When the document requires an upload, set `<attachmentsrequired>` to the same number (use 1 if unlimited).
-- FileTypes: write as a comma-separated list of extensions with dots: "PDF or Word" → `.pdf,.docx`; "image" → `.jpg,.png`. Leave empty if not stated.
+- Upload: "Yes" or "1" → `<attachments>1</attachments>`; a number → that number; "unlimited" → `-1`. When the document requires an upload, set `<attachmentsrequired>` to the same number (1 if unlimited).
+- FileTypes: a comma-separated list of extensions with dots: "PDF or Word" → `.pdf,.docx`; "image" → `.jpg,.png`. Leave empty if not stated.
 
 ## Tag format
 
