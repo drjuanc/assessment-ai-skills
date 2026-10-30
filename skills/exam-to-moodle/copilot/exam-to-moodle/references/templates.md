@@ -239,14 +239,14 @@ With No feedback, every feedback element is empty, as in the multiple-response a
     <hidden>0</hidden>
     <responseformat>editor</responseformat>
     <responserequired>1</responserequired>
-    <responsefieldlines>10</responsefieldlines>
+    <responsefieldlines>15</responsefieldlines>
     <attachments>0</attachments>
     <attachmentsrequired>0</attachmentsrequired>
     <graderinfo format="html">
-      <text><![CDATA[<table border="1"><thead><tr><th>Drug</th><th>Class</th><th>Main adverse effect</th></tr></thead><tbody><tr><td>Enalapril</td><td>ACE inhibitor</td><td>Dry cough</td></tr><tr><td>Amlodipine</td><td>Calcium channel blocker</td><td>Ankle oedema</td></tr></tbody></table>]]></text>
+      <text><![CDATA[<table border="1" style="width: 100%; border-collapse: collapse;"><thead><tr><th style="padding: 6px;">Drug</th><th style="padding: 6px;">Class</th><th style="padding: 6px;">Main adverse effect</th></tr></thead><tbody><tr><td style="padding: 6px;">Enalapril</td><td style="padding: 6px;">ACE inhibitor</td><td style="padding: 6px;">Dry cough</td></tr><tr><td style="padding: 6px;">Amlodipine</td><td style="padding: 6px;">Calcium channel blocker</td><td style="padding: 6px;">Ankle oedema</td></tr></tbody></table>]]></text>
     </graderinfo>
     <responsetemplate format="html">
-      <text><![CDATA[<table border="1"><thead><tr><th>Drug</th><th>Class</th><th>Main adverse effect</th></tr></thead><tbody><tr><td>Enalapril</td><td>&nbsp;</td><td>&nbsp;</td></tr><tr><td>Amlodipine</td><td>&nbsp;</td><td>&nbsp;</td></tr></tbody></table>]]></text>
+      <text><![CDATA[<table border="1" style="width: 100%; border-collapse: collapse;"><thead><tr><th style="width: 28%; padding: 6px; vertical-align: top; text-align: left;">Drug</th><th style="width: 36%; padding: 6px; vertical-align: top;">Class</th><th style="width: 36%; padding: 6px; vertical-align: top;">Main adverse effect</th></tr></thead><tbody><tr><td style="padding: 6px; vertical-align: top;">Enalapril</td><td style="padding: 6px; vertical-align: top; height: 40px;">&nbsp;</td><td style="padding: 6px; vertical-align: top; height: 40px;">&nbsp;</td></tr><tr><td style="padding: 6px; vertical-align: top;">Amlodipine</td><td style="padding: 6px; vertical-align: top; height: 40px;">&nbsp;</td><td style="padding: 6px; vertical-align: top; height: 40px;">&nbsp;</td></tr></tbody></table>]]></text>
     </responsetemplate>
     <tags>
       <tag><text>Topic_Pharmacology</text></tag>

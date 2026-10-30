@@ -8,6 +8,7 @@ Skills cannot read files outside their own folder, so these rules are copied int
 |---|---|---|---|
 | Metadata, tags, Bloom's, essay settings mapping | `references/metadata_rules.md` | `references/metadata_rules.md` | `agent-instructions.md`, "Metadata and tags" and "Essay settings" |
 | Essay settings: "Apply only settings the document states" | `SKILL.md`, "Essay settings" | `SKILL.md`, "Essay settings" | `agent-instructions.md`, "Essay settings" |
+| Response template tables | `references/question_patterns.md`, "Response template tables" (example: `templates.md`, `Pharmacology_Q006`; checks: `validation_checklist.md`) | same as Claude | `agent-instructions.md`, "Essays, tables and MEQs" |
 | MCQ fractions, question naming and category | `SKILL.md` | `SKILL.md` | `agent-instructions.md`, "Multiple choice and multiple response" and "Names and category" |
 | Feedback rules and disclaimer | `references/feedback_rules.md` (asking: `SKILL.md`) | `SKILL.md`, "Student feedback" | `agent-instructions.md`, "Feedback" |
 
@@ -77,6 +78,25 @@ These fields apply to essay questions only and never become tags. Apply only set
 - Words: "300" → `<maxwordlimit>300</maxwordlimit>`; "250–400" → `<minwordlimit>250</minwordlimit>` and `<maxwordlimit>400</maxwordlimit>`; "at least 200" → `<minwordlimit>200</minwordlimit>`.
 - Upload: "Yes" or "1" → `<attachments>1</attachments>`; a number → that number; "unlimited" → `-1`. When the document requires an upload, set `<attachmentsrequired>` to the same number (1 if unlimited).
 - FileTypes: a comma-separated list of extensions with dots: "PDF or Word" → `.pdf,.docx`; "image" → `.jpg,.png`. Leave empty if not stated.
+
+## Response template tables
+
+When a question has a table in `<responsetemplate>` (complete the table, label the diagram, three-stage assessment and similar), always style it so students have room to write:
+
+- Table: `style="width: 100%; border-collapse: collapse;"`
+- Column widths go on the header cells (`<th>`):
+  - Label or number columns (e.g. "Label", "1, 2, 3"): 10–12%, `text-align: center`
+  - Row-heading columns (e.g. "Stage of assessment", "Feature", "Brain structure"): 25–30%, `text-align: left`
+  - Answer columns share the rest equally (e.g. one answer column = 70–75%; two answer columns = 35–37% each)
+- Every `<th>` and `<td>`: `padding: 6px; vertical-align: top`
+- Answer cell height, set on the empty answer cells (`<td>&nbsp;</td>`):
+  - One word or short name: `height: 40px`
+  - One phrase or a single point: `height: 80px`
+  - Two or more points ("at least 2", "list", "describe"): `height: 120px`
+- Keep label and row-heading cells unstyled apart from padding and alignment.
+- Set `<responsefieldlines>` to at least 15 for any question with a template table.
+- The filled table in `<graderinfo>` also uses `width: 100%` and `padding: 6px`, with no fixed heights.
+- Only inline styles. No `<style>` blocks, classes or `<colgroup>`, because Moodle may strip them.
 
 ## MCQ fractions
 

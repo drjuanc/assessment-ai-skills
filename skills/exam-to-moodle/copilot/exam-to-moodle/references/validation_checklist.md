@@ -42,6 +42,11 @@ Check every item before returning output. Fix any failure. If a question cannot 
 - [ ] `<attachmentsrequired>` is not greater than `<attachments>` (unless attachments is -1).
 - [ ] An upload-only question has `<responserequired>0</responserequired>` and `<attachmentsrequired>` of at least 1.
 - [ ] A "complete the table" question has the table in `<responsetemplate>` with every marked answer removed and every unmarked cell kept, and the filled table in `<graderinfo>`.
+- [ ] Every table in `<responsetemplate>` has `style="width: 100%; border-collapse: collapse;"`, and the filled table in `<graderinfo>` has `width: 100%` and no fixed heights.
+- [ ] Template column widths are on the `<th>` cells: label or number columns 10–12%, row-heading columns 25–30%, answer columns sharing the rest equally.
+- [ ] Every empty answer cell in a template table has a height: 40px (one word or short name), 80px (one phrase or point) or 120px (two or more points).
+- [ ] A question with a template table has `<responsefieldlines>` of at least 15.
+- [ ] Template and grader tables use inline styles only: no `<style>` blocks, classes or `<colgroup>`.
 - [ ] No `[[CORRECT]]` markers or answer text remain in `<responsetemplate>`.
 - [ ] Template headings in `<responsetemplate>` are not repeated in `<questiontext>`.
 - [ ] `<filetypeslist>` entries start with a dot and are separated by commas.

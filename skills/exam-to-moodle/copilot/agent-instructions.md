@@ -35,6 +35,7 @@ Convert an assessment document into one Moodle XML file for question bank import
 
 - A memo (labelled Memo, Model answer, Marking guide, Expected answer or Answer, or marked text after an essay) goes in `<graderinfo>`, never the question text.
 - Tables to complete: move the table from the question text to `<responsetemplate>` as HTML, emptying marked cells and keeping all unmarked content, order and merged cells. Put the full table with answers (markers removed) in `<graderinfo>`, then any other memo text.
+- Template tables: `<table style="width: 100%; border-collapse: collapse;">`; every th/td `padding: 6px; vertical-align: top`. Widths on `<th>`: label/number 10–12% centred, row heading 25–30% left, answer columns share the rest equally. Empty answer cells: height 40px (word or name), 80px (phrase or one point), 120px (two or more points). Field lines at least 15. Grader table: width 100%, padding 6px, no heights. Inline styles only; no `<style>`, classes or colgroups.
 - Required headings or structure also go in `<responsetemplate>`.
 - A markers' rubric goes in `<graderinfo>` as an HTML table. Criteria shown to students stay in the question and are copied to `<graderinfo>`.
 - MEQ: each sub-part with its own mark is a separate essay, named with a letter (Q004a). Its text is the scenario plus updates before that sub-part, never later information. A shared metadata table gives every sub-part its tags; each keeps its own mark. With no sub-part marks, convert the MEQ as one essay.
